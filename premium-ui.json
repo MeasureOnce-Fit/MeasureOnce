@@ -1,0 +1,25 @@
+{
+  "profile": "product-admin",
+  "sourceRoots": ["src"],
+  "locale": "en-US",
+  "canonicalMap": "UX-CONTRACT.md",
+  "requiredCapabilities": ["Select/Listbox", "Form", "Scrollbar", "Dialog", "Status", "CRUD"],
+  "ownership": {
+    "Select/Listbox": "native",
+    "Form": "native",
+    "Scrollbar": "global-css",
+    "Dialog": "authored",
+    "Status": "authored",
+    "CRUD": "identity-service"
+  },
+  "requiredCommands": ["unit", "accessibility", "premium"],
+  "commands": {
+    "unit": "npm run test:identity",
+    "accessibility": "npm run test:a11y",
+    "premium": "npm run verify:premium"
+  },
+  "evidence": {
+    "crudFullFlow": "tests/identity/service.test.ts",
+    "failurePaths": "tests/identity/http.test.ts"
+  }
+}

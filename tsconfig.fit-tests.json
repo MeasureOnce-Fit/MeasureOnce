@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "ES2020",
+    "noEmit": false,
+    "outDir": ".tmp/fit-tests",
+    "rootDir": ".",
+    "incremental": false,
+    "isolatedModules": false
+  },
+  "include": [
+    "src/lib/fit/**/*.ts",
+    "src/lib/product-photos.json",
+    "tests/fit/**/*.ts",
+    "scripts/evaluate-fit.ts",
+    "scripts/evaluate-m6.ts"
+  ],
+  "exclude": ["node_modules"]
+}

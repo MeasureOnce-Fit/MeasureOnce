@@ -1,0 +1,32 @@
+project_id = "measureonce"
+
+[api]
+enabled = true
+port = 54321
+# The server uses supabase-js RPCs in `private`; SQL grants still deny browser roles.
+# Hosted Supabase: add `private` under API Settings > Exposed schemas as well.
+schemas = ["public", "graphql_public", "private"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 15
+
+[db.seed]
+enabled = false
+
+[auth]
+enabled = true
+site_url = "http://127.0.0.1:3000"
+additional_redirect_urls = ["http://localhost:3000/auth/callback"]
+enable_signup = true
+
+[auth.external.google]
+enabled = false
+client_id = ""
+secret = ""
+redirect_uri = ""
+skip_nonce_check = false
+email_optional = false

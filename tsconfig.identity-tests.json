@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "ES2020",
+    "noEmit": false,
+    "outDir": ".tmp/identity-tests",
+    "rootDir": ".",
+    "incremental": false,
+    "isolatedModules": false
+  },
+  "include": [
+    "src/lib/identity/**/*.ts",
+    "tests/identity/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}

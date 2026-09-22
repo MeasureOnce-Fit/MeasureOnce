@@ -1,0 +1,191 @@
+{
+  "protocolVersion": "m6-baseline-0.1",
+  "generatedAt": "2026-09-19T22:25:09.320Z",
+  "status": "baseline_only",
+  "synthetic": true,
+  "learnedModel": {
+    "evaluated": false,
+    "reason": "No independent garment-fit outcome labels are available."
+  },
+  "calibration": {
+    "evaluated": false,
+    "reason": "The product does not expose a probability and no observed outcomes exist."
+  },
+  "dataset": {
+    "brands": 10,
+    "styles": 200,
+    "variants": 2028,
+    "comparisonFixtures": 6,
+    "navigationCategories": 11,
+    "departmentCategoryPairs": 17,
+    "baseProfiles": 24,
+    "profilePreferenceCases": 72,
+    "sourceSizePositionsCovered": 1200
+  },
+  "catalogValidation": {
+    "passed": true,
+    "errors": []
+  },
+  "generatedCoverage": {
+    "total": 618,
+    "profileMatrixExecutions": 612,
+    "comparisonFixtureExecutions": 6,
+    "byState": {
+      "RECOMMENDED": 218,
+      "TRADEOFF": 71,
+      "INSUFFICIENT_PROFILE_EVIDENCE": 0,
+      "INSUFFICIENT_GARMENT_EVIDENCE": 0,
+      "CONFLICTING_EVIDENCE": 0,
+      "NO_SUITABLE_SIZE": 329,
+      "UNSUPPORTED": 0
+    }
+  },
+  "contractReview": {
+    "total": 44,
+    "passed": 44,
+    "failed": 0,
+    "reviewStatus": "awaiting_collaborator_signoff"
+  },
+  "comparatorReport": {
+    "note": "These comparators score expected result states only. They do not score the exact sellable size or physical fit.",
+    "systems": [
+      {
+        "name": "MeasureOnce deterministic engine",
+        "metricScope": "state_level_only",
+        "cases": 44,
+        "stateAgreement": 1,
+        "recommendationCoverage": 0.8636363636363636,
+        "conditionalStateAgreement": 1
+      },
+      {
+        "name": "Always-answer RECOMMENDED baseline",
+        "metricScope": "state_level_only",
+        "cases": 44,
+        "stateAgreement": 0.8409090909090909,
+        "recommendationCoverage": 1,
+        "conditionalStateAgreement": 0.8409090909090909
+      }
+    ],
+    "exactSize": {
+      "metricScope": "exact_sellable_label_on_reviewed_cases",
+      "cases": 38,
+      "candidate": {
+        "correct": 38,
+        "agreement": 1
+      },
+      "middleLabelPrior": {
+        "correct": 0,
+        "agreement": 0
+      }
+    }
+  },
+  "heldOutPartition": {
+    "status": "partition_manifest_only",
+    "brandHoldout": {
+      "brandId": "brand_10",
+      "styleCount": 20
+    },
+    "styleHoldout": {
+      "rule": "catalog style index modulo 10 equals zero",
+      "styleCount": 20
+    },
+    "note": "This run records the grouped split manifest; held-out comparator execution is the next evaluation slice."
+  },
+  "heldOutEvaluation": {
+    "status": "executed_on_reviewed_contract_cases",
+    "cases": 11,
+    "stateAgreement": 1,
+    "note": "This slice is small because the current literal review set was not designed as a power-calculated held-out sample."
+  },
+  "slices": [
+    {
+      "slice": "Men · Denim",
+      "cases": 3,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Men · Knitwear",
+      "cases": 2,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Men · Outerwear",
+      "cases": 2,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Men · Shirts & Tees",
+      "cases": 2,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Men · Shorts",
+      "cases": 2,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Men · Sweatshirts",
+      "cases": 2,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Men · Tailoring",
+      "cases": 2,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Men · Trousers",
+      "cases": 2,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Women · Denim",
+      "cases": 10,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Women · Dresses",
+      "cases": 2,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Women · Knitwear",
+      "cases": 2,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Women · Outerwear",
+      "cases": 2,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Women · Shorts",
+      "cases": 2,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Women · Skirts",
+      "cases": 2,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Women · Tailoring",
+      "cases": 2,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Women · Tops",
+      "cases": 3,
+      "stateAgreement": 1
+    },
+    {
+      "slice": "Women · Trousers",
+      "cases": 2,
+      "stateAgreement": 1
+    }
+  ],
+  "claims": [
+    "Synthetic deterministic replay is measured by the existing contract and generated coverage checks.",
+    "Physical fit accuracy, returns, conversion, margin, and production calibration are not measured."
+  ]
+}
