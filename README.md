@@ -171,18 +171,6 @@ docs/research/          Product and technical research
 
 Build-critical files remain at the repository root. The specialized `tsconfig.*-tests.json` files are required by the corresponding npm test commands.
 
-## Roadmap
-
-- [x] Synthetic multi-brand catalog and local product imagery
-- [x] Deterministic, evidence-aware fit engine
-- [x] Fit Passport profiles and known-size evidence
-- [x] Synthetic evaluation and baseline comparison
-- [ ] Independent collaborator signoff for all current contract fingerprints
-- [ ] Real-world measurement validation with consented data
-- [ ] Production monitoring, privacy review, and retailer integration hardening
-
-See [open issues](https://github.com/MeasureOnce-Fit/MeasureOnce/issues) for proposed work and known problems.
-
 ## Contributing
 
 Contributions and reproducible bug reports are welcome. Fork the repository, create a focused branch, run the relevant validation commands, and open a pull request that explains the behavior change and its evidence.
