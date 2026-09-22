@@ -10,7 +10,7 @@
     <a href="#product-tour">Product tour</a> ·
     <a href="#results-and-evaluation">Results</a> ·
     <a href="#getting-started">Run locally</a> ·
-    <a href="https://github.com/Reins-AgenticAI/Reins/issues">Report an issue</a>
+    <a href="https://github.com/MeasureOnce-Fit/MeasureOnce/issues">Report an issue</a>
   </p>
 
   <img alt="Next.js" src="https://img.shields.io/badge/Next.js-16-111111?logo=nextdotjs">
@@ -22,6 +22,8 @@
 ## About the project
 
 MeasureOnce explores a simple question: can one reusable Fit Passport help a shopper choose a defensible size across different apparel brands?
+
+**Live prototype:** [measureonce.vercel.app](https://measureonce.vercel.app)
 
 The prototype combines a fictional multi-brand storefront with a deterministic fit engine. A shopper can create profiles for themselves or other people, save body measurements or a known size, describe how that garment fits, and request a recommendation for a catalog item. The engine only recommends a size when the selected evidence and a versioned size chart support it; otherwise it explains what is missing instead of inventing certainty.
 
@@ -114,8 +116,8 @@ Detailed evidence:
 1. Clone the repository.
 
    ```bash
-   git clone https://github.com/Reins-AgenticAI/Reins.git
-   cd Reins
+   git clone https://github.com/MeasureOnce-Fit/MeasureOnce.git
+   cd MeasureOnce
    ```
 
 2. Install dependencies.
@@ -179,11 +181,15 @@ Build-critical files remain at the repository root. The specialized `tsconfig.*-
 - [ ] Real-world measurement validation with consented data
 - [ ] Production monitoring, privacy review, and retailer integration hardening
 
-See [open issues](https://github.com/Reins-AgenticAI/Reins/issues) for proposed work and known problems.
+See [open issues](https://github.com/MeasureOnce-Fit/MeasureOnce/issues) for proposed work and known problems.
 
 ## Contributing
 
 Contributions and reproducible bug reports are welcome. Fork the repository, create a focused branch, run the relevant validation commands, and open a pull request that explains the behavior change and its evidence.
+
+## Contributors
+
+- **Lekhureddy** — project contributor.
 
 ## License
 

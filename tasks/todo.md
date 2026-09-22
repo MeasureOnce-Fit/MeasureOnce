@@ -188,3 +188,9 @@ Design register: a marketing homepage with a functional product preview; shared 
 - [x] Upgrade exact collection-scoped legacy contexts to verified category references and consume matching legacy references safely at recommendation time.
 - [x] Reject ambiguous both-collection legacy reinterpretation.
 - [x] Verify Velmora Dresses `0` persistence, all `0, 2, 4, 6, 8, 10` picker values, and the signed-in Lek → Balanced storefront journey.
+
+## Saved-fit product preview, 21 September 2026
+
+- [x] Load the active Fit Passport profile's safe recommendation when its shopper opens a product drawer.
+- [x] Describe saved size references accurately instead of labeling all saved evidence as body measurements.
+- [x] Credit Lekhureddy in the public README and link the live prototype.
