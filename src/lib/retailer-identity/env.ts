@@ -18,6 +18,12 @@ export interface RetailerIdentityConfig {
   sessionTtlSeconds: number;
 }
 
+export interface ShowcaseSessionConfig {
+  retailerId: string;
+  sessionSecret: Uint8Array;
+  sessionTtlSeconds: number;
+}
+
 export class RetailerIdentityEnvironmentError extends Error {
   constructor() {
     super("Retailer identity is unavailable.");
@@ -48,6 +54,26 @@ function positiveInteger(value: string, maximum: number): number {
     throw new RetailerIdentityEnvironmentError();
   }
   return parsed;
+}
+
+export function loadShowcaseSessionConfig(
+  environment: EnvironmentSource = process.env,
+): ShowcaseSessionConfig {
+  try {
+    const retailerId = required(environment, "RETAILER_IDENTITY_RETAILER_ID");
+    if (!UUID.test(retailerId)) throw new RetailerIdentityEnvironmentError();
+
+    return {
+      retailerId,
+      sessionSecret: secret(environment, "RETAILER_IDENTITY_SESSION_SECRET"),
+      sessionTtlSeconds: positiveInteger(
+        required(environment, "RETAILER_IDENTITY_SESSION_TTL_SECONDS"),
+        3_600,
+      ),
+    };
+  } catch {
+    throw new RetailerIdentityEnvironmentError();
+  }
 }
 
 export async function loadRetailerIdentityConfig(

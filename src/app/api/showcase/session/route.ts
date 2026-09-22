@@ -1,6 +1,6 @@
 import "server-only";
 
-import { loadRetailerIdentityConfig } from "@/lib/retailer-identity/env";
+import { loadShowcaseSessionConfig } from "@/lib/retailer-identity/env";
 import { createShowcaseSessionPostHandler } from "@/lib/retailer-identity/showcase-session-http";
 import { APP_SESSION_COOKIE_NAME, createAppSessionCookie } from "@/lib/retailer-identity/session";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
@@ -25,7 +25,9 @@ export const POST = createShowcaseSessionPostHandler({
     if (error || !isEligibleShowcaseSessionUser(data.user)) return null;
     return data.user.id;
   },
-  loadConfig: loadRetailerIdentityConfig,
+  async loadConfig() {
+    return loadShowcaseSessionConfig();
+  },
   async resolvePrincipal({ retailerId, authUserId }) {
     const admin = createSupabaseAdminClient();
     return resolveShowcaseShopper({

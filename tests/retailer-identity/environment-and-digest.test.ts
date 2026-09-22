@@ -7,6 +7,7 @@ import { exportSPKI, generateKeyPair } from "jose";
 import {
   RetailerIdentityEnvironmentError,
   loadRetailerIdentityConfig,
+  loadShowcaseSessionConfig,
 } from "../../src/lib/retailer-identity/env";
 import { digestRetailerSubject } from "../../src/lib/retailer-identity/subject-digest";
 
@@ -70,6 +71,17 @@ for (const invalidCase of [
 
 test("rejects an unconfigured retailer identity environment", async () => {
   await assert.rejects(loadRetailerIdentityConfig({}), RetailerIdentityEnvironmentError);
+});
+
+test("loads prototype showcase sessions without an assertion public key", async () => {
+  const config = await loadShowcaseSessionConfig({
+    ...(await validEnvironment()),
+    RETAILER_IDENTITY_PUBLIC_KEY_PEM: "not a PEM public key",
+  });
+
+  assert.equal(config.retailerId, RETAILER_ID);
+  assert.equal(config.sessionTtlSeconds, 900);
+  assert.equal(config.sessionSecret.byteLength >= 32, true);
 });
 
 test("computes the subject digest as HMAC-SHA-256 without retaining the subject", () => {
