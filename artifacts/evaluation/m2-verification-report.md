@@ -28,7 +28,7 @@ Verification date: 18 September 2026
 - The live synthetic seed created 2 retailers, 6 identities and 6 profiles. The hosted isolation verifier passed for all six accounts, including a same-subject cross-retailer collision case.
 - The repeatable `npm run verify:m2-journey` check passed against the running application and hosted database. Shopper A1 saw three profiles, shopper A2 saw one, and A2 completed create, rename, export and delete for a temporary additional-member profile without changing A1.
 - The normal `/fit-passport` route was visually inspected after hosted configuration and displayed the retailer-account sign-in form without a separate Fit Passport password.
-- Approved mock, final captures and side-by-side evidence are recorded in `design-qa.md` and `artifacts/design-qa/`.
+- Approved mock, final captures and side-by-side evidence are recorded in [`docs/design/design-qa.md`](../../docs/design/design-qa.md) and `artifacts/design-qa/`.
 
 ## Not yet verified
 
