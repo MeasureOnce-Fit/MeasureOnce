@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   ProtectedSessionUnauthorizedError,
   derivePrincipalContext,
+  loadProtectedSessionConfig,
 } from "../../src/lib/identity/session-context";
 import { createAppSessionCookie, verifyAppSession } from "../../src/lib/retailer-identity/session";
 
@@ -59,6 +60,19 @@ test("derives the principal context only from a verified host-only application s
     principalId: "principal-0001",
     retailerId: RETAILER_ID,
   });
+});
+
+test("loads Fit Passport session verification without an assertion public key", async () => {
+  const config = await loadProtectedSessionConfig({
+    RETAILER_IDENTITY_RETAILER_ID: "20000000-0000-4000-8000-000000000001",
+    RETAILER_IDENTITY_SESSION_SECRET: "session-secret-longer-than-thirty-two-bytes",
+    RETAILER_IDENTITY_SESSION_TTL_SECONDS: "900",
+    RETAILER_IDENTITY_PUBLIC_KEY_PEM: "not a PEM public key",
+  });
+
+  assert.equal(config.retailerId, "20000000-0000-4000-8000-000000000001");
+  assert.equal(config.sessionTtlSeconds, 900);
+  assert.equal(config.sessionSecret.byteLength >= 32, true);
 });
 
 test("rejects absent, tampered, expired, wrong-tenant, and duplicate session cookies", async (t) => {

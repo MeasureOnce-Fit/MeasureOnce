@@ -1,6 +1,6 @@
 import type { PrincipalContext } from "./types";
 import {
-  loadRetailerIdentityConfig,
+  loadShowcaseSessionConfig,
   RetailerIdentityEnvironmentError,
 } from "../retailer-identity/env";
 import {
@@ -14,6 +14,14 @@ interface SessionContextConfig {
   retailerId: string;
   sessionSecret: Uint8Array;
   sessionTtlSeconds: number;
+}
+
+type EnvironmentSource = Readonly<Record<string, string | undefined>>;
+
+export async function loadProtectedSessionConfig(
+  environment?: EnvironmentSource,
+): Promise<SessionContextConfig> {
+  return loadShowcaseSessionConfig(environment);
 }
 
 export interface SessionContextDependencies {
@@ -37,7 +45,7 @@ export class ProtectedSessionUnavailableError extends Error {
 }
 
 const defaultDependencies: SessionContextDependencies = {
-  loadConfig: loadRetailerIdentityConfig,
+  loadConfig: loadProtectedSessionConfig,
   verifySession: verifyAppSession,
 };
 

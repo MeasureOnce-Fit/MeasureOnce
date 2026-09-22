@@ -6,17 +6,14 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 import { describeSignupError } from "@/lib/identity/signup-error";
+import { postAuthenticationDestination } from "@/lib/identity/account-destination";
 
 import styles from "./retailer-account.module.css";
-
-function safeDestination(value: string | null) {
-  return value === "/fit-passport" ? value : "/";
-}
 
 export default function RetailerAccountClient({ mode = "signin" }: { mode?: "signin" | "signup" }) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const destination = safeDestination(searchParams.get("next"));
+  const destination = postAuthenticationDestination(searchParams.get("next"));
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmation, setConfirmation] = useState("");
